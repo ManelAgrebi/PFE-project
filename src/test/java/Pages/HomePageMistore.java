@@ -15,8 +15,7 @@ public class HomePageMistore {
 	List<WebElement> menus;
 	@FindBy(xpath="/html/body/div[2]/header/div[1]/div/section/div/div[2]/div/div/div/div/nav/ul/li/div/div/div/div/section/div/div/div/div/div/a/div/div[2]/h4")
 	List<WebElement> submenus;
-	@FindBy(xpath="//*[@id=\"main\"]/header/h1")
-	WebElement VerifTitle;
+	
 	
 	
 	public HomePageMistore () {
@@ -45,7 +44,10 @@ public class HomePageMistore {
 	public void ClickProduct(String ProductName) {
 		try {
 		for (WebElement submenu:submenus) {
+			
+			
 			if (submenu.getText().contains(ProductName)) {
+				
 				submenu.click();
 			}
 		}
@@ -54,9 +56,6 @@ public class HomePageMistore {
 	}
 	}
 	
-	public String VerifMessage() {
-		String ActualMessage= VerifTitle.getText();
-		return ActualMessage;
-	}
+
 
 }

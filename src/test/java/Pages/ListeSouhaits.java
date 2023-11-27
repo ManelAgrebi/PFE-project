@@ -12,13 +12,13 @@ import Helper.Config;
 
 public class ListeSouhaits {
 	
-	@FindBy (xpath="/html/body/div[2]/div[4]/div/div/div/div/div[3]/div[1]/div/div[3]/div/form/div/div[2]/div/div/div/div/a/span")
+	@FindBy (xpath="//*[@id=\"shop-now\"]/div[2]/div/div/div/div/a/span")
 	WebElement AjoutlistSouhaits;
 	
 	@FindBy(xpath="/html/body/div[2]/header/div[1]/div/section/div/div[4]/div/section/div/div[1]/div/div/div/div/a/i")
 	WebElement ListSouhaits;
 	
-	@FindBy(xpath="//*[@id=\"yith-wcwl-row-16704\"]/td[2]/a")
+	@FindBy(xpath="/html/body/div[1]/div[5]/section/div/div/div/form/table/tbody/tr/td[2]/a")
 	WebElement NomProduit;
 	
 	
@@ -26,13 +26,15 @@ public class ListeSouhaits {
 		PageFactory.initElements(Config.driver, this);
 	}
 	
-	public void AddListWish() {
+	public void AddListWish() throws InterruptedException {
+		Thread.sleep(3000);
 		AjoutlistSouhaits.click();
 	}
 	
-	public void ListDeSouhaits() {
+	public void ListDeSouhaits() throws InterruptedException {
 		WebDriverWait wait=new WebDriverWait(Config.driver, Duration.ofSeconds(5));
 		wait.until(ExpectedConditions.elementToBeClickable(ListSouhaits));
+		Thread.sleep(3000);
 		ListSouhaits.click();
 	}
 	

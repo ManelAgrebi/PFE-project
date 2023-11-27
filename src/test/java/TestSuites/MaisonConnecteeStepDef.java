@@ -7,16 +7,17 @@ import org.junit.Assert;
 
 import Helper.Config;
 import Helper.Utils;
-import Pages.MaisonConnectée;
+import Pages.MaisonConnectee;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class MaisonConnectéeStepDef {
+public class MaisonConnecteeStepDef {
 	@Given("Admin est dans la page {string}")
 	public void admin_est_dans_la_page(String PageTitle) throws IOException {
+		
 		Config.ConfChrome();
-		Config.navigate(Utils.getProperty("MaisonConnectée_Link"));
+		Config.navigate(Utils.getProperty("MaisonConnectee_Link"));
 		 
 		   Config.MaximiseWindow();
 	
@@ -24,8 +25,8 @@ public class MaisonConnectéeStepDef {
 	}
 
 	@When("Admin fait le tri des produits avec {string}")
-	public void admin_fait_le_tri_des_produits_avec(String TriSort) {
-		MaisonConnectée page= new MaisonConnectée();
+	public void admin_fait_le_tri_des_produits_avec(String TriSort) throws InterruptedException {
+		MaisonConnectee page= new MaisonConnectee();
 		page.triProduit(TriSort);
 			
 			
@@ -34,18 +35,24 @@ public class MaisonConnectéeStepDef {
 	
 
 	@When("Admin clique sur un produit {string}")
-	public void admin_clique_sur_un_produit(String ProductName) {
-		MaisonConnectée produit= new MaisonConnectée();
+	public void admin_clique_sur_un_produit(String ProductName) throws InterruptedException {
+		
+		MaisonConnectee produit= new MaisonConnectee();
+		
 		produit.ClickOnProduct(ProductName);
+		
 		
 	  
 	}
 
 	@Then("Admin est sur la page {string}")
-	public void admin_est_sur_la_page(String ExceptedMessage) {
-		MaisonConnectée home= new MaisonConnectée();
-		String actualMessage= home.VerifTitle();
+	public void admin_est_sur_la_page(String ExceptedMessage) throws InterruptedException {
+		
+		MaisonConnectee home= new MaisonConnectee();
+		String actualMessage= home.VerifMc();
 		Assert.assertEquals(ExceptedMessage, actualMessage);
+		Config.driver.quit();
+		
 		
 	   
 	}

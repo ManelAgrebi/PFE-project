@@ -10,7 +10,7 @@ public class Config {
 	public static Actions actions;
 	
 	public static void ConfChrome() {
-		System.setProperty("webdriver.chrome.driver", "c:/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "c:/chromedriver_.exe");
 		driver= new ChromeDriver();
 	}
 	public static void MaximiseWindow () {
