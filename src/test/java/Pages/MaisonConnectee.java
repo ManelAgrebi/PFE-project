@@ -14,8 +14,10 @@ public class MaisonConnectee {
 	WebElement Tri;
 	@FindBy(xpath="/html/body/div[2]/div[5]/div/div/div[1]/div/div[3]/div/div/div/div[2]/div[2]/h3/a")
 	List<WebElement> ListProduct;
-	
 	@FindBy(xpath="/html/body/div[2]/div[4]/div/div/div/div/div[3]/div[1]/div/div[3]/div/h3")
+	WebElement VerifProduit;
+	
+	@FindBy(xpath="/html/body/div[2]/div[5]/div/div/div[1]/div/header/h1")
 	WebElement VerifTitle;
 	
 	
@@ -60,7 +62,7 @@ public class MaisonConnectee {
 	}
 	
 	public String VerifMc() {
-		String actualMessage= VerifTitle.getText();
+		String actualMessage= VerifProduit.getText();
 		
 		return actualMessage;
 	}

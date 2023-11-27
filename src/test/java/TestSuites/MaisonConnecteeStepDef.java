@@ -51,6 +51,7 @@ public class MaisonConnecteeStepDef {
 		MaisonConnectee home= new MaisonConnectee();
 		String actualMessage= home.VerifMc();
 		Assert.assertEquals(ExceptedMessage, actualMessage);
+		Thread.sleep(3000);
 		Config.driver.quit();
 		
 		
